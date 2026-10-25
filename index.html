@@ -168,14 +168,28 @@
         <p class="mt-3 text-sm text-slate-400">
           One-time fixed passes with no hidden recurring fees. Instant digital activation.
         </p>
+
+        <!-- Workstation / Device Switcher Tabs (1, 2, 4 Workstations) -->
+        <div class="mt-8 inline-flex items-center p-1 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <button type="button" onclick="setWorkstations(1)" id="btn-ws-1" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-indigo-600 text-white shadow-md">
+            1 Workstation
+          </button>
+          <button type="button" onclick="setWorkstations(2)" id="btn-ws-2" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition text-slate-400 hover:text-white">
+            2 Workstations
+          </button>
+          <button type="button" onclick="setWorkstations(4)" id="btn-ws-4" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition text-slate-400 hover:text-white">
+            4 Workstations
+          </button>
+        </div>
+        <p class="mt-2 text-xs text-slate-400">Simultaneous remote technical coverage per selected pass.</p>
       </div>
 
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5 items-stretch">
         <!-- 1-Hour Diagnostic Pass -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">1-Hour Diagnostic</span>
-            <h3 class="mt-1 text-lg font-bold text-white">Velocia Pass — 1-Hour Diagnostic (1H)</h3>
+            <h3 class="mt-1 text-base sm:text-lg font-bold text-white">Velocia Pass — 1-Hour Diagnostic (1H)</h3>
             <div class="mt-4 flex items-baseline gap-1">
               <span class="text-3xl font-extrabold text-white">$1.05</span>
               <span class="text-xs text-slate-400">/ 1 hour</span>
@@ -192,116 +206,138 @@
           </a>
         </div>
 
-        <!-- 1 Month -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between">
+        <!-- 1 Month (30 Days) -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">30-Day Coverage</span>
-            <h3 class="mt-1 text-lg font-bold text-white">Velocia Pass — 30-Day Access (1M)</h3>
+            <h3 class="mt-1 text-base sm:text-lg font-bold text-white">Velocia Pass — 30-Day Access (1M)</h3>
             <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-3xl font-extrabold text-white">$14.99</span>
+              <span id="price-1m" class="text-3xl font-extrabold text-white">$14.99</span>
               <span class="text-xs text-slate-400">/ 30 days</span>
             </div>
             <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
               <li>&#10003; Cloud DNS &amp; Route Optimization Profile</li>
               <li>&#10003; Remote Device Configuration Guide</li>
               <li>&#10003; 30 Days of 24/7 Priority Ticket Support</li>
-              <li>&#10003; Single Workstation / Device License</li>
+              <li id="license-1m">&#10003; 1 Workstation / Device License</li>
             </ul>
           </div>
-          <a href="https://whop.com/checkout/plan_gLjGXRRx7paan" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
+          <a id="link-1m" href="https://whop.com/checkout/plan_gLjGXRRx7paan" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
             Select 30-Day Pass
           </a>
         </div>
 
-        <!-- 3 Months -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between">
+        <!-- 3 Months (Quarterly) -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Quarterly Coverage</span>
-            <h3 class="mt-1 text-lg font-bold text-white">Velocia Pass — Quarterly Access (3M)</h3>
+            <h3 class="mt-1 text-base sm:text-lg font-bold text-white">Velocia Pass — Quarterly Access (3M)</h3>
             <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-3xl font-extrabold text-white">$34.99</span>
+              <span id="price-3m" class="text-3xl font-extrabold text-white">$34.99</span>
               <span class="text-xs text-slate-400">/ 90 days</span>
             </div>
             <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
               <li>&#10003; Cloud DNS &amp; Route Optimization Profile</li>
               <li>&#10003; Multi-Network Latency Diagnostics</li>
               <li>&#10003; 90 Days of 24/7 Priority Ticket Support</li>
-              <li>&#10003; Automated Configuration Updates</li>
+              <li id="license-3m">&#10003; 1 Workstation / Device License</li>
             </ul>
           </div>
-          <a href="https://whop.com/checkout/plan_c02erwHbqHlmA" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
+          <a id="link-3m" href="https://whop.com/checkout/plan_c02erwHbqHlmA" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
             Select Quarterly Pass
           </a>
         </div>
 
-        <!-- 6 Months -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between">
+        <!-- 6 Months (Semi-Annual) -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Semi-Annual Coverage</span>
-            <h3 class="mt-1 text-lg font-bold text-white">Velocia Pass — Semi-Annual Access (6M)</h3>
+            <h3 class="mt-1 text-base sm:text-lg font-bold text-white">Velocia Pass — Semi-Annual Access (6M)</h3>
             <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-3xl font-extrabold text-white">$54.99</span>
+              <span id="price-6m" class="text-3xl font-extrabold text-white">$54.99</span>
               <span class="text-xs text-slate-400">/ 180 days</span>
             </div>
             <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
               <li>&#10003; Full Cloud Routing &amp; QoS Tuning</li>
               <li>&#10003; Priority Remote Engineer Onboarding</li>
               <li>&#10003; 180 Days of 24/7 Technical Support</li>
-              <li>&#10003; Free Configuration Transfers</li>
+              <li id="license-6m">&#10003; 1 Workstation / Device License</li>
             </ul>
           </div>
-          <a href="https://whop.com/checkout/plan_MgscL4cX6a6r3" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
+          <a id="link-6m" href="https://whop.com/checkout/plan_MgscL4cX6a6r3" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
             Select Semi-Annual Pass
           </a>
         </div>
 
-        <!-- 12 Months VIP -->
-        <div class="rounded-2xl border-2 border-indigo-500 bg-slate-900 p-6 flex flex-col justify-between shadow-xl shadow-indigo-500/10">
+        <!-- 12 Months Annual VIP (Featured Highlight) -->
+        <div class="rounded-2xl border-2 border-indigo-400 bg-gradient-to-b from-indigo-950/50 via-slate-900 to-slate-900 p-5 sm:p-6 flex flex-col justify-between shadow-2xl shadow-indigo-500/20 relative lg:-translate-y-2 ring-1 ring-indigo-400/40">
           <div>
-            <span class="inline-block rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-indigo-300">Most Popular</span>
-            <h3 class="mt-2 text-lg font-bold text-white">Velocia Pass — Annual VIP Access (12M)</h3>
+            <div class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-500/30 to-amber-500/30 border border-indigo-400/40 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-300">
+              ★ Recommended • Best Value
+            </div>
+            <h3 class="mt-2 text-base sm:text-lg font-bold text-white">Velocia Pass — Annual VIP Access (12M)</h3>
             <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-3xl font-extrabold text-white">$79.99</span>
+              <span id="price-12m" class="text-3xl font-extrabold text-amber-400">$79.99</span>
               <span class="text-xs text-slate-400">/ 365 days</span>
             </div>
             <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
               <li>&#10003; Enterprise Low-Latency Cloud Profile</li>
               <li>&#10003; 365 Days of VIP 1-on-1 Engineer Access</li>
               <li>&#10003; Quarterly Network Health Audits</li>
-              <li>&#10003; Priority Server Node Failover Protection</li>
+              <li id="license-12m">&#10003; 1 Workstation / Device License</li>
             </ul>
           </div>
-          <a href="https://whop.com/checkout/plan_m3IYtl2UTbESm" class="mt-6 block w-full rounded-xl bg-gradient-to-r from-indigo-500 to-sky-500 py-3 text-center text-xs font-bold text-white hover:brightness-110 transition">
+          <a id="link-12m" href="https://whop.com/checkout/plan_m3IYtl2UTbESm" class="mt-6 block w-full rounded-xl bg-gradient-to-r from-indigo-500 via-sky-500 to-indigo-600 py-3 text-center text-xs font-black uppercase tracking-wider text-white hover:brightness-110 shadow-lg shadow-indigo-500/30 transition">
             Select Annual VIP Pass
-          </a>
-        </div>
-
-        <!-- Lifetime Enterprise -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Long-Term Enterprise Coverage</span>
-            <h3 class="mt-1 text-lg font-bold text-white">Velocia Pass — Platinum Enterprise Pass</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-3xl font-extrabold text-white">$199.99</span>
-              <span class="text-xs text-slate-400">/ one-time pass</span>
-            </div>
-            <p class="mt-3 text-xs text-slate-400 leading-relaxed">
-              Complete long-term access to Velocia IT Solutions cloud network profiles, multi-device configuration templates, priority engineering desk, and lifetime profile updates.
-            </p>
-            <div class="mt-4 grid grid-cols-2 gap-2 text-xs text-slate-300">
-              <div>&#10003; Multi-Device Workspace Support</div>
-              <div>&#10003; Dedicated Senior Support Engineer</div>
-              <div>&#10003; Custom DNS &amp; Proxy Routing Profiles</div>
-              <div>&#10003; Lifetime Profile &amp; Firmware Guides</div>
-            </div>
-          </div>
-          <a href="https://whop.com/checkout/plan_HBLkKdFWDg3qw" class="mt-6 block w-full rounded-xl bg-slate-800 py-3 text-center text-xs font-bold text-white hover:bg-slate-700 transition">
-            Select Platinum Enterprise Pass
           </a>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    const TIERS_DATA = {
+      1: {
+        '1m': { price: '$14.99', link: 'https://whop.com/checkout/plan_gLjGXRRx7paan', license: '1 Workstation License' },
+        '3m': { price: '$34.99', link: 'https://whop.com/checkout/plan_c02erwHbqHlmA', license: '1 Workstation License' },
+        '6m': { price: '$54.99', link: 'https://whop.com/checkout/plan_MgscL4cX6a6r3', license: '1 Workstation License' },
+        '12m': { price: '$79.99', link: 'https://whop.com/checkout/plan_m3IYtl2UTbESm', license: '1 Workstation VIP License' },
+      },
+      2: {
+        '1m': { price: '$22.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '2 Workstations License' },
+        '3m': { price: '$53.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '2 Workstations License' },
+        '6m': { price: '$84.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '2 Workstations License' },
+        '12m': { price: '$123.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '2 Workstations VIP License' },
+      },
+      4: {
+        '1m': { price: '$39.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '4 Workstations License' },
+        '3m': { price: '$92.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '4 Workstations License' },
+        '6m': { price: '$144.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '4 Workstations License' },
+        '12m': { price: '$209.99', link: 'https://whop.com/velociait/velocia-digital-pass/', license: '4 Workstations VIP License' },
+      }
+    };
+
+    function setWorkstations(count) {
+      [1, 2, 4].forEach(function(num) {
+        var btn = document.getElementById('btn-ws-' + num);
+        if (num === count) {
+          btn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-indigo-600 text-white shadow-md';
+        } else {
+          btn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition text-slate-400 hover:text-white';
+        }
+      });
+
+      var data = TIERS_DATA[count];
+      ['1m', '3m', '6m', '12m'].forEach(function(key) {
+        var pEl = document.getElementById('price-' + key);
+        var lEl = document.getElementById('link-' + key);
+        var licEl = document.getElementById('license-' + key);
+        if (pEl) pEl.textContent = data[key].price;
+        if (lEl) lEl.href = data[key].link;
+        if (licEl) licEl.innerHTML = '&#10003; ' + data[key].license;
+      });
+    }
+  </script>
 
   <!-- FAQ & Compliance Policies -->
   <section id="faq" class="py-16 border-t border-slate-900">
